@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula PHP</title>
+    <title>Programação Websites II</title>
 </head>
 
 <body>
@@ -14,11 +14,11 @@
     <div class="container">
         <table>
             <td>
-                <th>Rifa</th>
+                <th>Aula 2</th>
                 <tr></tr>
             </td>
         </table>
-        <p>Rifa</p>
+        <p>Aula 2</p>
     </div>
 
 </body>

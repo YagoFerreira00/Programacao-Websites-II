@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #CCCCCC;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    background-color: #000000;
+    padding-bottom: 90px;
+    width: 100%;
+}
+
+.container {
+    text-align: center;
+    width: 700px;
+    padding: 30px;
+    margin: 50px auto;
+    border: 1px black solid;
+    background-color: #FF8000;
+}
+
+.container h1 {
+    text-align: center;
+    text-align: right;
+}
