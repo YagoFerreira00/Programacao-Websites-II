@@ -11,25 +11,29 @@
 <body>
     <div class="header">
     <img src='mclogo.png' style='width: 500px;'>    
-    <h1>CALCULADORA IMC</h1>
+    <h1>CONVERSOR DE MOEDA</h1>
     </div>
     <div style="text-align: center;" class="container">
-        <h2>Calculadora IMC </h2>
+        <h2>Conversor de moeda </h2>
         <br>
         <form action="" method="POST">
-            <label for="nome">Nome: </label>
-            <input type="text" id="nome" name="nome" required><br><br>
 
-            <label for="peso">Peso(Kg): </label>
-            <input type="number" id="peso" name="peso" step="0.1" required><br><br>
+            <label for="valor">Valor: </label>
+            <input type="number" id="valor" name="valor" step="0.01" required><br><br>
 
-            <label for="altura">Altura(m): </label>
-            <input type="number" id="altura" name="altura" step="0.01" required><br><br>
+            <label for="altura">Converter de: </label>
+            <select name="de" id="de"></select>
+            <option value="USD"></option>
+            <option value="EUR"></option>
+            <option value="BRL"></option>
 
-            <label for="dataNasc">Ano de nascimento: </label>
-            <input type="number" id="dataNasc" name="dataNasc" required><br><br>
+            <label for="dataNasc">Converter para: </label>
+            <select name="para" id="para"></select>
+            <option value="USD"></option>
+            <option value="EUR"></option>
+            <option value="BRL"></option>
 
-            <input type="submit" value="Calcular IMC">
+            <input type="submit" value="Converter">
             <input type="reset" value="Limpar">
         </form>
 

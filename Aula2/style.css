@@ -12,16 +12,18 @@ body {
 .header {
     text-align: center;
     background-color: #000000;
-    padding-bottom: 90px;
+    padding-top: 10px;
+    padding-bottom: 50px;
     width: 100%;
 }
 
 .container {
     text-align: center;
-    width: 700px;
+    width: 500px;
     padding: 30px;
     margin: 50px auto;
     border: 1px black solid;
+    border-radius: 300px;
     background-color: #FF8000;
 }
 
