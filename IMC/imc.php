@@ -5,36 +5,33 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora IMC</title>
 </head>
 
 <body>
     <div class="header">
-    <img src='mclogo.png' style='width: 500px;'>    
-    <h1>CONVERSOR DE MOEDA</h1>
+        <img src='mclogo.png' style='width: 500px;'>
+        <h1>CALCULADORA IMC ⚖️</h1>
     </div>
     <div style="text-align: center;" class="container">
-        <h2>Conversor de moeda </h2>
+        <h2>Calculadora IMC</h2>
         <br>
         <form action="" method="POST">
+            <label for="nome">Nome: </label>
+            <input type="text" id="nome" name="nome" required><br><br>
 
-            <label for="valor">Valor: </label>
-            <input type="number" id="valor" name="valor" step="0.01" required><br><br>
+            <label for="peso">Peso(Kg): </label>
+            <input type="number" id="peso" name="peso" step="0.1" required><br><br>
 
-            <label for="altura">Converter de: </label>
-            <select name="de" id="de"></select>
-            <option value="USD"></option>
-            <option value="EUR"></option>
-            <option value="BRL"></option>
+            <label for="altura">Altura(m): </label>
+            <input type="number" id="altura" name="altura" step="0.01" required><br><br>
 
-            <label for="dataNasc">Converter para: </label>
-            <select name="para" id="para"></select>
-            <option value="USD"></option>
-            <option value="EUR"></option>
-            <option value="BRL"></option>
+            <label for="dataNasc">Ano de nascimento: </label>
+            <input type="number" id="dataNasc" name="dataNasc" required><br><br>
 
-            <input type="submit" value="Converter">
-            <input type="reset" value="Limpar">
+            <button class="button-59" type="submit" role="button">Calcular IMC</button>
+            <button class="button-59" type="reset" role="button">Limpar</button>
+
         </form>
 
         <div class="resposta">

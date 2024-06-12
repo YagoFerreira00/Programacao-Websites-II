@@ -10,11 +10,12 @@ $quantNum = 6;
     <link rel="stylesheet" href="./style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula PHP</title>
+    <title>Rifa</title>
 </head>
 
 <body>
     <div class="header">
+    <img src='mclogo.png' style='width: 500px;'>
         <h1>RIFA FAVELA VENCEU 🤑🍀</h1>
     </div>
     <div class="container">

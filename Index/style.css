@@ -1,25 +1,47 @@
-body{
+* {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
     background-color: #CCCCCC;
     color: white;
 }
-.header{
+
+.header {
     text-align: center;
     background-color: #000000;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 50px;
     width: 100%;
 }
-.container{
-    width: 700px;
+
+.container {
+    text-align: center;
+    width: 500px;
     padding: 30px;
     margin: 50px auto;
     border: 1px black solid;
+    border-radius: 300px;
     background-color: #FF8000;
 }
-.container h1{
+
+.container h1 {
     text-align: center;
     text-align: right;
 }
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover{
+  color: #000;
+}
+
+
 .button-59 {
     align-items: center;
     background-color: #CCCCCC;
