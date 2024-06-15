@@ -8,12 +8,11 @@
     <title>Conversor de moedas</title>
 </head>
 
-<body>
-    <div class="header">
-        <img src='mclogo.png' style='width: 500px;'>
+<body class="back-85">
+    <br><br><div style="text-align: center" class="header-85">
         <h1>CONVERSOR DE MOEDAS 💴💵💶</h1>
     </div>
-    <div style="text-align: center;" class="container">
+    <br><br><br><br><div style="text-align: center;" class="container-85">
         <h2>Conversor de moedas</h2>
         <br>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -32,8 +31,9 @@
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="BRL">BRL</option>
-            </select><br>
-            <br><button class="button-59" type="submit" role="button">Converter</button><br>
+            </select>
+            <br><br><button class="button-85" type="reset" role="button">Limpar</button>
+            <br><br><button class="button-85" type="submit" role="button">Converter</button><br>
         </form>
 
 
@@ -78,6 +78,11 @@
             ?>
 
         </div>
+    </div>
+    <div style="text-align: center; color: black;">
+   <footer>
+    <span class="texto-rgb-brilhante">Copyright © Yago Ferreira 2024</span>
+        </footer>
     </div>
 </body>
 

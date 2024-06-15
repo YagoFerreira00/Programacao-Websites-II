@@ -8,12 +8,11 @@
     <title>Calculadora de áreas</title>
 </head>
 
-<body>
-    <div class="header">
-        <img src='mclogo.png' style='width: 500px;'>
+<body class="back-85">
+    <br><br><div style="text-align: center" class="header-85">
         <h1>CALCULADORA DE ÁREAS 📏</h1>
     </div>
-    <div style="text-align: center;" class="container">
+    <br><br><br><br><div style="text-align: center;" class="container-85">
         <h2>Calculadora de áreas</h2>
         <br>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -37,7 +36,7 @@
         <br><label for="raio">Raio (para círculo):</label>
         <input type="number" name="raio" id="raio"><br>
 
-        <br><button class="button-59" type="submit" role="button">Calcular</button>
+        <br><button class="button-85" type="submit" role="button">Calcular</button>
     </form>
 
 
@@ -73,6 +72,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
         </div>
+    </div>
+    <div style="text-align: center; color: white;">
+    <footer>
+    <span class="texto-rgb-brilhante">Copyright © Yago Ferreira 2024</span>
+        </footer>
     </div>
 </body>
 

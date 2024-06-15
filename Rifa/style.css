@@ -68,3 +68,8 @@ body{
       min-width: 170px;
     }
   }
+
+  .texto-rgb-brilhante {
+    font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */
+    animation: glowing-text 2s linear infinite;
+  }

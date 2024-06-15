@@ -8,13 +8,12 @@
     <title>Conversor de temperatura</title>
 </head>
 
-<body>
-    <div class="header">
-        <img src='mclogo.png' style='width: 500px;'>
+<body class="back-85">
+    <br><br><div style="text-align: center" class="header-85">
         <h1>CONVERSOR DE TEMPERATURA 🌡️</h1>
     </div>
-    <div style="text-align: center;" class="container">
-        <h2>Conversor de temperatura</h2>
+    <br><br><br><br><div style="text-align: center;" class="container-85">
+        <h3>Conversor de temperatura</h3>
         <br>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <label for="temperatura">Temperatura:</label>
@@ -28,7 +27,7 @@
             </select><br>
 
             <br>
-            <button class="button-59" type="submit" role="button">Converter</button>
+            <button class="button-85" type="submit" role="button">Converter</button>
         </form>
 
         <br>
@@ -71,6 +70,11 @@
 
 
         </div>
+    </div>
+    <div style="text-align: center; color: black;">
+    <footer>
+    <span class="texto-rgb-brilhante">Copyright © Yago Ferreira 2024</span>
+        </footer>
     </div>
 </body>
 

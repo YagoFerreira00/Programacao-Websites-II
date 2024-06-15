@@ -8,12 +8,11 @@
     <title>Calculadora IMC</title>
 </head>
 
-<body>
-    <div class="header">
-        <img src='mclogo.png' style='width: 500px;'>
+<body class="back-85">
+    <br><br><div style="text-align: center" class="header-85">
         <h1>CALCULADORA IMC ⚖️</h1>
     </div>
-    <div style="text-align: center;" class="container">
+    <br><br><br><br><div style="text-align: center;" class="container-85">
         <h2>Calculadora IMC</h2>
         <br>
         <form action="" method="POST">
@@ -27,10 +26,11 @@
             <input type="number" id="altura" name="altura" step="0.01" required><br><br>
 
             <label for="dataNasc">Ano de nascimento: </label>
-            <input type="number" id="dataNasc" name="dataNasc" required><br><br>
+            <input type="number" id="dataNasc" name="dataNasc" required>
 
-            <button class="button-59" type="submit" role="button">Calcular IMC</button>
-            <button class="button-59" type="reset" role="button">Limpar</button>
+            <br><br><button class="button-85" type="submit" role="button">Calcular IMC</button>
+            <button class="button-85" type="reset" role="button">Limpar</button>
+            
 
         </form>
 
@@ -61,6 +61,11 @@
             }
             ?>
         </div>
+    </div>
+    <div style="text-align: center; color: white;">
+    <footer>
+    <span class="texto-rgb-brilhante">Copyright © Yago Ferreira 2024</span>
+        </footer>
     </div>
 </body>
 

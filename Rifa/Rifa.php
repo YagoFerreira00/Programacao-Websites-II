@@ -1,7 +1,7 @@
 <?php
 $premio = "McLaren 570S REBAIXADA";
 $valor = 10.00;
-$quantNum = 6;
+$quantNum = 570;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -49,7 +49,11 @@ $quantNum = 6;
         ?>
 
     </div>
-
+    <div style="text-align: center; color: black;">
+        <footer>
+            <p>Desenvolvido por Yago Ferreira@2024</p>
+        </footer>
+    </div>
 </body>
 
 </html>
