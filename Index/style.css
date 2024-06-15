@@ -34,6 +34,7 @@ body {
 
 a{
   text-decoration: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #fff;
 }
 
@@ -44,7 +45,7 @@ a:hover{
 
 .button-59 {
     align-items: center;
-    background-color: glowing-text 2s linear infinite;
+    background-color: #CCCCCC;
     border: 2px solid #000;
     box-sizing: border-box;
     color: #000;
@@ -92,6 +93,7 @@ a:hover{
   }
   .header-85 {
     padding: 0.6em 2em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
     background: #111;
     cursor: default;
