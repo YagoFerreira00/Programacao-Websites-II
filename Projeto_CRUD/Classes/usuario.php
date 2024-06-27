@@ -3,6 +3,7 @@ class Usuario
 {
     private $conn;
     private $table_name = "usuario";
+    
 
 
     public function __construct($db)
@@ -34,13 +35,31 @@ class Usuario
     {
         return $this->registrar($nome, $sexo, $fone, $email, $senha);
     }
-    public function ler()
-    {
-        $query = "SELECT * FROM " . $this->table_name;
+    public function ler($search = '', $order_by = '') {
+        $query = "SELECT * FROM usuario";
+        $conditions = [];
+        $params = [];
+
+        if ($search) {
+           $conditions[] = "(nome LIKE :search OR email LIKE :search)";
+            $params[':search'] = '%' . $search . '%';
+        }
+
+        if ($order_by === 'nome') {
+            $query .= " ORDER BY nome";
+        } elseif ($order_by === 'sexo') {
+            $query .= " ORDER BY sexo";
+        }
+
+        if (count($conditions) > 0) {
+            $query .= " WHERE " . implode(' AND ', $conditions);
+        }
+
         $stmt = $this->conn->prepare($query);
-        $stmt->execute();
+        $stmt->execute($params);
         return $stmt;
     }
+
     public function lerPorId($id)
     {
         $query = "SELECT * FROM " . $this->table_name . " WHERE id = ?";

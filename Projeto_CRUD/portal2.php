@@ -49,27 +49,31 @@ function saudacao() {
     <meta charset="UTF-8">
     <title>Portal</title>
 </head>
-<a href="logout.php">Logout</a><br>
-<a href="portal.php">Administrar Usuarios</a>
-    <br>
-    <a href="portal2.php">Administrar Notícias</a>
+<a href="logout.php">Logout</a>
+<a href="portal.php">Usuarios</a>
+<a href="portal2.php">Notícias</a>
 <body>
-    <h1 align="center"><?php echo saudacao() . ", " . $nome_usuario; ?><br>Aqui estão as ultimas notícias!</h1>
+    <h1><?php echo saudacao() . ", " . $nome_usuario; ?> <br>Bem-vindo ao Portal de Notícias!</h1>
+    <a href="postar.php">Postar Notícia</a>
 <br>
-    <table border="1" align="center">
+    <table border="1">
         <tr>
             <th>Postado por</th>
+            <th>Data</th>
             <th>Titulo</th>
             <th>Notícia</th>
-            <th>Data</th>
-        
+            <th>Ações</th>
         </tr>
         <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
             <tr>
                 <td><?php echo $row['idusu']; ?></td>
+                <td><?php echo $row['data']; ?></td>
                 <td><?php echo $row['titulo']; ?></td>
                 <td><?php echo $row['noticia']; ?></td>
-                <td><?php echo $row['data']; ?></td>
+                <td>
+                    <a href="editar2.php?idnot=<?php echo $row['idnot']; ?>">Editar</a>
+                    <a href="deletar2.php?idnot=<?php echo $row['idnot']; ?>">Deletar</a>
+                </td>
             </tr>
         <?php endwhile; ?>
     </table>
