@@ -22,7 +22,7 @@ class Noticia
         return $this->registrar($idusu, $data, $titulo, $noticia);
     }
     public function ler($search = '', $order_by = '') {
-        $query = "SELECT n.idnot, u.nome as usuario, n.titulo, n.noticia, n.data FROM usuario AS u INNER JOIN noticias AS n ON u.id = n.idusu ";   //"SELECT * FROM noticias";
+        $query = "SELECT n.idnot, u.nome  as usuario, n.titulo, n.noticia, n.data FROM usuario AS u INNER JOIN noticias AS n ON u.id = n.idusu ";   //"SELECT * FROM noticias";
         $conditions = [];
         $params = [];
 

@@ -36,7 +36,7 @@ function saudacao() {
     <title>Portal</title>
 </head>
 <a href="index2.php">Portal</a><br><br>
-<a href="login.php">Login</a>
+<a href="logout.php">Logout</a>
 <body>
     <h1 align="center"><?php echo saudacao() . " " ?><br>Aqui estão todas as notícias!</h1>
 <br>

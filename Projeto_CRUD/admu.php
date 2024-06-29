@@ -57,17 +57,18 @@ function saudacao() {
 <body>
     <header>
         <nav>
-            <a href="index2.php">Home</a>
-            <a href="portal.php">Usuários</a>
-            <a href="portal2.php">Noticias</a>
+            <a href="index.php">Home</a><br><br>
+            <a href="admn.php">Administrar Notícias</a><br><br>
+            <a href="admu.php">Administrar Usuários</a><br><br>
+            <a href="registrar.php">Adicionar Usuário</a><br><br>
             <a href="logout.php">Logout</a>
         </nav>
     </header>
 
     <div class="container">
         <h1><?php echo saudacao() . ", " . $nome_usuario; ?><br>Bem-vindo ao Portal de Usuários!</h1>
-        <a href="registrar.php">Adicionar Usuário</a>
-<!—INCORPORADO UM FORMULARIO PARA FAZER O FILTRO -->
+
+<!-- INCORPORADO UM FORMULARIO PARA FAZER O FILTRO -->
         <form method="GET">
             <input type="text" name="search" placeholder="Pesquisar por nome ou email" value="<?php echo htmlspecialchars($search); ?>">
             <label>

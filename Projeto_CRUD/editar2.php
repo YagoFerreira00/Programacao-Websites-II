@@ -31,6 +31,13 @@ if (isset($_GET['idnot'])) {
     <title>Editar Postagem</title>
 </head>
 <body>
+<header>
+        <nav>
+            <a href="index2.php">Voltar</a><br><br>
+            <a href="home.php">Noticias</a><br><br>
+            <a href="logout.php">Logout</a>
+        </nav>
+    </header>
     <h1>Editar Postagem</h1>
     <form method="POST">
         <input type="hidden" name="idnot" value="<?php echo $row['idnot']; ?>">

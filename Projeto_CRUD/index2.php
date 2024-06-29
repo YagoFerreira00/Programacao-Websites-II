@@ -10,6 +10,18 @@ if (!isset($_SESSION['usuario_id'])) {
     header('Location: login.php');
     exit();
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    
+    $noticias = new Noticia($db);
+    $idusu = $_SESSION['usuario_id'];
+    $data = date("Y-m-d");
+    $titulo = $_POST['titulo'];
+    $noticia = $_POST['noticia'];
+    $noticias->criar($idusu, $data, $titulo, $noticia);
+    header('Location: index2.php');
+    exit();
+}
 $noticias = new Noticia($db);
 
 // Verificar se o usuário está logado
@@ -26,13 +38,44 @@ if (isset($_GET['deletar'])) {
     header('Location: portal.php');
     exit();
 }
+// Obter parâmetros de pesquisa e filtros
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$order_by = isset($_GET['order_by']) ? $_GET['order_by'] : '';
+
+// Obter dados dos usuários com filtros
+$dados = $usuario->ler($search, $order_by);
+
 // Obter dados do usuário logado
 $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
 $nome_usuario = $dados_usuario['nome'];
 $idusu = $dados_usuario['id'];
 // Obter dados dos usuários
 $noticias = new Noticia($db);
-$info = $noticias->lerNotUsu($_SESSION['usuario_id']);
+$infon = $noticias->lerNotUsu($_SESSION['usuario_id']);
+
+// SÓ NOTICIAS ACIMA
+
+$usuario = new Usuario($db);
+
+// Processar exclusão de usuário
+if (isset($_GET['deletar'])) {
+    $id = $_GET['deletar'];
+    $usuario->deletar($id);
+    header('Location: portal.php');
+    exit();
+}
+
+// Obter parâmetros de pesquisa e filtros
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$order_by = isset($_GET['order_by']) ? $_GET['order_by'] : '';
+
+// Obter dados dos usuários com filtros
+$dados = new Usuario($db);
+$infou = $dados->lerPerfUsu($_SESSION['usuario_id']);
+
+// Obter dados do usuário logado
+$dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
+$nome_usuario = $dados_usuario['nome'];
 
 // Função para determinar a saudação
 function saudacao() {
@@ -46,10 +89,6 @@ function saudacao() {
     }
 }
 
-// Obter dados dos usuários
-$noticias = new Noticia($db);
-$info = $noticias->lerNotUsu($_SESSION['usuario_id']);
-
 
 ?>
 <!DOCTYPE html>
@@ -58,12 +97,12 @@ $info = $noticias->lerNotUsu($_SESSION['usuario_id']);
     <meta charset="UTF-8">
     <title>Portal</title>
 </head>
-<a href="index.php">Home</a><br>
-<a href="portal.php">Editar Perfil</a><br>
+<a href="home.php">Voltar</a><br><br>
 <a href="logout.php">Logout</a>
 <body>
     <h1 align="center"><?php echo saudacao() . ", " . $nome_usuario; ?></h1>
 <br>
+
 <h1 align="center">Postar Noticia</h1>
     <form align="center" method="POST">
         <label for="titulo">Titulo:</label>
@@ -79,12 +118,13 @@ $info = $noticias->lerNotUsu($_SESSION['usuario_id']);
     <h1 align="center">Minhas Noticias</h1>
         <tr>
             <th>Postado por</th>
+            <th>Data</th>
             <th>Titulo</th>
             <th>Notícia</th>
-            <th>Data</th>
+            <th>Ações</th>
         
         </tr>
-        <?php while ($row = $info->fetch(PDO::FETCH_ASSOC)) : ?>
+        <?php while ($row = $infon->fetch(PDO::FETCH_ASSOC)) : ?>
             <tr>
                 <td>Você</td>
                 <td><?php echo $row['data']; ?></td>
@@ -97,8 +137,9 @@ $info = $noticias->lerNotUsu($_SESSION['usuario_id']);
             </tr>
         <?php endwhile; ?>
     </table>
-
-    <table>
+    <br>
+    <table border="1" align="center">
+    <h1 align="center">Meus Dados</h1>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -107,7 +148,7 @@ $info = $noticias->lerNotUsu($_SESSION['usuario_id']);
                 <th>Email</th>
                 <th>Ações</th>
             </tr>
-            <?php while ($row = $info->fetch(PDO::FETCH_ASSOC)) : ?>
+            <?php while ($row = $infou->fetch(PDO::FETCH_ASSOC)) : ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['nome']; ?></td>
@@ -121,4 +162,5 @@ $info = $noticias->lerNotUsu($_SESSION['usuario_id']);
                 </tr>
             <?php endwhile; ?>
         </table>
+        
 </body> </html>

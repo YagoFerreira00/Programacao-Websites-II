@@ -12,7 +12,7 @@ $noticia = new Noticia($db);
 if (isset($_GET['idnot'])) {
     $idnot = $_GET['idnot'];
     $noticia->deletar($idnot);
-    header('Location: portal2.php');
+    header('Location: index2.php');
     exit();
 }
 ?>

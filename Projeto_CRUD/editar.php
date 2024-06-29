@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fone = $_POST['fone'];
     $email = $_POST['email'];
     $usuario->atualizar($id, $nome, $sexo, $fone, $email);
-    header('Location: portal.php');
+    header('Location: index2.php');
     exit();
 }
 if (isset($_GET['id'])) {
@@ -31,6 +31,14 @@ if (isset($_GET['id'])) {
     <title>Editar Usuário</title>
 </head>
 <body>
+<header>
+        <nav>
+            <a href="index2.php">Voltar</a><br><br>
+            <a href="home.php">Noticias</a><br><br>
+            <a href="logout.php">Logout</a>
+        </nav>
+    </header>
+
     <h1>Editar Usuário</h1>
     <form method="POST">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">

@@ -49,9 +49,9 @@ function saudacao() {
     <meta charset="UTF-8">
     <title>Portal</title>
 </head>
+<a href="admn.php">Administrar Notícias</a><br><br>
+<a href="admu.php">Administrar Usuários</a><br><br>
 <a href="logout.php">Logout</a>
-<a href="portal.php">Usuarios</a>
-<a href="portal2.php">Notícias</a>
 <body>
     <h1><?php echo saudacao() . ", " . $nome_usuario; ?> <br>Bem-vindo ao Administrador de Notícias!</h1>
     <table border="1">
