@@ -21,11 +21,35 @@ class Noticia
     {
         return $this->registrar($idusu, $data, $titulo, $noticia);
     }
-    public function ler()
-    {
-        $query = "SELECT * FROM " . $this->table_name;
+    public function ler($search = '', $order_by = '') {
+        $query = "SELECT n.idnot, u.nome as usuario, n.titulo, n.noticia, n.data FROM usuario AS u INNER JOIN noticias AS n ON u.id = n.idusu ";   //"SELECT * FROM noticias";
+        $conditions = [];
+        $params = [];
+
+        if ($search) {
+           $conditions[] = "(titulo LIKE : search OR noticia LIKE : search)";
+            $params[':search'] = '%' . $search . '%';
+        }
+
+        if ($order_by === 'titulo') {
+            $query .= " ORDER BY titulo";
+        } elseif ($order_by === 'data') {
+            $query .= " ORDER BY data";
+        }
+
+        if (count($conditions) > 0) {
+            $query .= " WHERE " . implode(' AND ', $conditions);
+        }
+
         $stmt = $this->conn->prepare($query);
-        $stmt->execute();
+        $stmt->execute($params);
+        return $stmt;
+    }
+    public function lerNotUsu($idusu){
+        $query = "SELECT * FROM " . $this->table_name . " WHERE idusu = ?";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$idusu]);
         return $stmt;
     }
     public function lerPorId($idnot)
@@ -35,6 +59,7 @@ class Noticia
         $stmt->execute([$idnot]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
     public function atualizar($idusu, $data, $titulo, $noticia, $idnot)
     {
         $query = "UPDATE " . $this->table_name . " SET idusu = ?, data = ?, titulo = ?, noticia = ? WHERE idnot = ?";

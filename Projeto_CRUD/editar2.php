@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulo = $_POST['titulo'];
     $noticia = $_POST['noticia'];
     $noticias->atualizar($idusu, $data, $titulo, $noticia,$idnot);
-    header('Location: portal2.php');
+    header('Location: index2.php');
     exit();
 }
 if (isset($_GET['idnot'])) {

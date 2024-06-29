@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulo = $_POST['titulo'];
     $noticia = $_POST['noticia'];
     $noticias->criar($idusu, $data, $titulo, $noticia);
-    header('Location: portal2.php');
+    header('Location: index2.php');
     exit();
 }
 ?>

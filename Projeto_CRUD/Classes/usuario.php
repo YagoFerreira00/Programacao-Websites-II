@@ -59,6 +59,13 @@ class Usuario
         $stmt->execute($params);
         return $stmt;
     }
+    public function lerPerfUsu($id){
+        $query = "SELECT * FROM " . $this->table_name . " WHERE id = ?";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$id]);
+        return $stmt;
+    }
 
     public function lerPorId($id)
     {

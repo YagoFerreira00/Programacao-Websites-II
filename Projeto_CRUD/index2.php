@@ -45,6 +45,12 @@ function saudacao() {
         return "Boa noite";
     }
 }
+
+// Obter dados dos usuários
+$noticias = new Noticia($db);
+$info = $noticias->lerNotUsu($_SESSION['usuario_id']);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -52,21 +58,32 @@ function saudacao() {
     <meta charset="UTF-8">
     <title>Portal</title>
 </head>
-<a href="index2.php">Home</a><br>
+<a href="index.php">Home</a><br>
+<a href="portal.php">Editar Perfil</a><br>
 <a href="logout.php">Logout</a>
 <body>
-    <h1><?php echo saudacao() . ", " . $nome_usuario; ?> <br>Bem-vindo ao Portal de Notícias!</h1>
-    <a href="postar.php">Postar Notícia</a>
+    <h1 align="center"><?php echo saudacao() . ", " . $nome_usuario; ?></h1>
 <br>
-    <table border="1">
+<h1 align="center">Postar Noticia</h1>
+    <form align="center" method="POST">
+        <label for="titulo">Titulo:</label>
+        <input type="text" name="titulo" required>
+        <br><br>
+        <label for="noticia">Noticia:</label>
+        <input type="text" name="noticia" required>
+        <br><br>
+        <input type="submit" value="Postar">
+    </form>
+    <br>
+    <table border="1" align="center">
+    <h1 align="center">Minhas Noticias</h1>
         <tr>
             <th>Postado por</th>
-            <th>Data</th>
             <th>Titulo</th>
             <th>Notícia</th>
-            <th>Ações</th>
-        </tr>
+            <th>Data</th>
         
+        </tr>
         <?php while ($row = $info->fetch(PDO::FETCH_ASSOC)) : ?>
             <tr>
                 <td>Você</td>
@@ -80,4 +97,28 @@ function saudacao() {
             </tr>
         <?php endwhile; ?>
     </table>
+
+    <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Fone</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+            <?php while ($row = $info->fetch(PDO::FETCH_ASSOC)) : ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['nome']; ?></td>
+                    <td><?php echo ($row['sexo'] === 'M') ? 'Masculino' : 'Feminino'; ?></td>
+                    <td><?php echo $row['fone']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td>
+                        <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
+                        <a href="deletar.php?id=<?php echo $row['id']; ?>">Apagar minha conta</a>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </table>
 </body> </html>

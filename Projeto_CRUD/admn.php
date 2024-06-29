@@ -1,22 +1,35 @@
 <?php
+session_start();
 include_once './config/config.php';
 include_once './classes/Usuario.php';
 include_once './classes/Noticia.php';
 
 
 
-
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: login.php');
+    exit();
+}
 $noticias = new Noticia($db);
 
+// Verificar se o usuário está logado
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: login.php');
+    exit();
+}
 $usuario = new Usuario($db);
 
 // Processar exclusão de usuário
 if (isset($_GET['deletar'])) {
     $idnot = $_GET['deletar'];
     $noticias->deletar($id);
-    header('Location: portal.php');
+    header('Location: index2.php');
     exit();
 }
+// Obter dados do usuário logado
+$dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
+$nome_usuario = $dados_usuario['nome'];
+// Obter dados dos usuários
 $dados = $noticias->ler();
 // Função para determinar a saudação
 function saudacao() {
@@ -36,24 +49,29 @@ function saudacao() {
     <meta charset="UTF-8">
     <title>Portal</title>
 </head>
-<a href="login.php">Login</a><br>
+<a href="logout.php">Logout</a>
+<a href="portal.php">Usuarios</a>
+<a href="portal2.php">Notícias</a>
 <body>
-    <h1 align="center"><?php echo saudacao() . ", " ?><br>Aqui estão todas as notícias!</h1>
-<br>
-    <table border="1" align="center">
+    <h1><?php echo saudacao() . ", " . $nome_usuario; ?> <br>Bem-vindo ao Administrador de Notícias!</h1>
+    <table border="1">
         <tr>
             <th>Postado por</th>
+            <th>Data</th>
             <th>Titulo</th>
             <th>Notícia</th>
-            <th>Data</th>
-        
+            <th>Ações</th>
         </tr>
         <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
             <tr>
                 <td><?php echo $row['usuario']; ?></td>
+                <td><?php echo $row['data']; ?></td>
                 <td><?php echo $row['titulo']; ?></td>
                 <td><?php echo $row['noticia']; ?></td>
-                <td><?php echo $row['data']; ?></td>
+                <td>
+                    <a href="editar2.php?idnot=<?php echo $row['idnot']; ?>">Editar</a>
+                    <a href="deletar2.php?idnot=<?php echo $row['idnot']; ?>">Deletar</a>
+                </td>
             </tr>
         <?php endwhile; ?>
     </table>

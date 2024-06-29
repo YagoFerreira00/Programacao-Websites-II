@@ -25,8 +25,7 @@ $search = isset($_GET['search']) ? $_GET['search'] : '';
 $order_by = isset($_GET['order_by']) ? $_GET['order_by'] : '';
 
 // Obter dados dos usuários com filtros
-$dados = new Usuario($db);
-$info = $dados->lerPerfUsu($_SESSION['usuario_id']);
+$dados = $usuario->ler($search, $order_by);
 
 // Obter dados do usuário logado
 $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
@@ -92,7 +91,7 @@ function saudacao() {
                 <th>Email</th>
                 <th>Ações</th>
             </tr>
-            <?php while ($row = $info->fetch(PDO::FETCH_ASSOC)) : ?>
+            <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['nome']; ?></td>
@@ -101,7 +100,7 @@ function saudacao() {
                     <td><?php echo $row['email']; ?></td>
                     <td>
                         <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
-                        <a href="deletar.php?id=<?php echo $row['id']; ?>">Apagar minha conta</a>
+                        <a href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
                     </td>
                 </tr>
             <?php endwhile; ?>
