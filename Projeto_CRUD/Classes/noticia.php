@@ -27,7 +27,7 @@ class Noticia
         $params = [];
 
         if ($search) {
-           $conditions[] = "(titulo LIKE : search OR noticia LIKE : search)";
+           $conditions[] = "(titulo LIKE :search OR noticia LIKE :search)";
             $params[':search'] = '%' . $search . '%';
         }
 
