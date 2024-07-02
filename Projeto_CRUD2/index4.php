@@ -81,11 +81,11 @@ $nome_usuario = $dados_usuario['nome'];
 function saudacao() {
     $hora = date('H');
     if ($hora >= 6 && $hora < 12) {
-        return "Bom dia";
+        return "Bom dia 🌞";
     } elseif ($hora >= 12 && $hora < 18) {
-        return "Boa tarde";
+        return "Boa tarde ☀️";
     } else {
-        return "Boa noite";
+        return "Boa noite 🌚";
     }
 }
 
@@ -137,18 +137,23 @@ function saudacao() {
             </p>
         </div>
     </header>
-    <h1 align="center"><?php echo saudacao() . ", " . $nome_usuario; ?></h1>
+    <div class="container-fluid">
+        <main class="tm-main">
+            <!-- Search form -->
+            <div class="row tm-row">
+                <div class="col-12">
+    <h1 align="center"><?php echo saudacao() . "<br> " . $nome_usuario; ?></h1>
 <br>
 
-<h1 align="center">Postar Noticia</h1>
+<h1 align="center">Postar Notícia</h1>
     <form align="center" method="POST">
         <label for="titulo">Titulo:</label>
-        <input type="text" name="titulo" required>
-        <br><br>
+        <input class="form-control tm-search-input" type="text" name="titulo" required>
+        <br>
         <label for="noticia">Noticia:</label>
-        <input type="text" name="noticia" required>
-        <br><br>
-        <input type="submit" value="Postar">
+        <input class="form-control tm-search-input" type="text" name="noticia" required>
+        <br>
+        <input wrap="hard" type="submit" class="tm-btn tm-btn-primary" value="Postar">
     </form>
     <br>
     <table border="1" align="center">

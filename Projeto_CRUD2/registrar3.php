@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $usuario->criar($nome, $sexo, $fone, $email, $senha);
-    header('Location: index3.php');
+    header('Location: login3.php');
     exit();
 }
 ?>
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="form-group row mb-4">
                             <label for="email" class="col-sm-3 col-form-label text-right tm-color-primary">Fone</label>
                             <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="fone" id="fone" type="text" required>
+                                <input maxlength="11" class="form-control mr-0 ml-auto" name="fone" id="fone" type="text" required>
                             </div>
                         </div>
                         <div class="form-group row mb-4">

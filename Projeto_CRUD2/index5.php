@@ -83,40 +83,53 @@ function saudacao()
                 <div class="col-12">
                     <form method="GET" class="form-inline tm-mb-80 tm-search-form">
                         <input class="form-control tm-search-input" type="text" name="search" placeholder="Pesquisar por título ou notícia" value="<?php echo htmlspecialchars($search); ?>">
-                        <label>
-                            <input type="radio" name="order_by" value="" <?php if ($order_by == '') echo 'checked'; ?>> Normal
-                        </label>
-                        <label>
-                            <input type="radio" name="order_by" value="titulo" <?php if ($order_by == 'titulo') echo 'checked'; ?>> Ordem Alfabética
-                        </label>
-                        <label>
-                            <input type="radio" name="order_by" value="data" <?php if ($order_by == 'data') echo 'checked'; ?>> Data
-                        </label>
-                        <button class="tm-search-button" type="submit">
-                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                        <div class="container">
+                            <div class="custom-radio">
+                            <div class="container">
+  <div class="custom-radio">
+    <input type="radio" id="radio-1" name="order_by" value="" <?php if ($order_by == '') echo 'checked'; ?>>
+    <label class="radio-label" for="radio-1">
+      <div class="radio-circle"></div>
+      <span class="radio-text">Normal</span>
+    </label>
+    <input type="radio" id="radio-2" name="order_by" value="titulo" <?php if ($order_by == 'titulo') echo 'checked'; ?>>
+    <label class="radio-label" for="radio-2">
+      <div class="radio-circle"></div>
+      <span class="radio-text">Ordem Alfabética</span>
+    </label>
+    <input type="radio" id="radio-3" name="order_by" value="data" <?php if ($order_by == 'data') echo 'checked'; ?>>
+    <label class="radio-label" for="radio-3">
+      <div class="radio-circle"></div>
+      <span class="radio-text">Data</span>
+    </label>
+  </div>
+</div>
+                </div>
+                <button align="center" class="tm-search-button" type="submit">
+                            <i align="center" class="fas fa-search tm-search-icon" aria-hidden="true"></i>
                         </button>
                     </form>
                 </div>
-            </div>
-            <div class="row tm-row">
-            <table border="1" align="center">
-        <tr>
-            <th>Postado por</th>
-            <th>Titulo</th>
-            <th>Notícia</th>
-            <th>Data</th>
-        
-        </tr>
-        <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-            <tr>
-                <td><?php echo $row['usuario']; ?></td>
-                <td><?php echo $row['titulo']; ?></td>
-                <td><?php echo $row['noticia']; ?></td>
-                <td><?php echo $row['data']; ?></td>
-            </tr>
-        <?php endwhile; ?>
-    </table>
-            <footer class="row tm-row">
+                
+            <div><?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+                    <table style = 'width:90%;' border="1" align="center">
+                        <tr>
+                            <th>Postado por: <?php echo $row['usuario']; ?></th>
+                            <th><?php echo $row['data']; ?></th>
+
+                        </tr>
+                    </table>
+                    <table style = 'width:90%;' border="1" align="center">
+                        <tr>
+                            <td style = 'text-align: center';><strong><?php echo $row['titulo']; ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo $row['noticia']; ?></td>
+                        </tr>
+                    </table><br><br>
+                <?php endwhile; ?>
+
+                <footer class="row tm-row">
                 <hr class="col-12">
                 <div class="col-md-6 col-12 tm-color-gray">
                     Design: <a rel="nofollow" target="_parent" href="https://github.com/yagoferreira00" class="tm-external-link">Yago Ferreira</a>

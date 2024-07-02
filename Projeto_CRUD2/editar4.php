@@ -94,7 +94,7 @@ if (isset($_GET['id'])) {
                         <div class="form-group row mb-4">
                             <label for="email" class="col-sm-3 col-form-label text-right tm-color-primary">Fone</label>
                             <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="fone" id="fone" type="text" value="<?php echo $row['fone']; ?>" required>
+                                <input maxlength="11" class="form-control mr-0 ml-auto" name="fone" id="fone" type="text" value="<?php echo $row['fone']; ?>" required>
                             </div>
                         </div>
                         <div class="form-group row mb-4">
